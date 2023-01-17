@@ -1,0 +1,14 @@
+.section-spinners {
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

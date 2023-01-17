@@ -1,0 +1,117 @@
+/* ------------------- */
+/* Spinner Animation               */
+/* ------------------- */
+@keyframes firstBoxAnim {
+  15% {
+    transform: translate(50%, -50%) scale(1.5); }
+  30% {
+    transform: translate(50%, 50%) scale(1.5); }
+  45% {
+    transform: translate(-50%, 50%) scale(1.5) rotate(180deg); }
+  60% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(180deg); }
+  75% {
+    transform: translate(-25%, -25%) scale(1) rotate(180deg); }
+  90% {
+    transform: translate(25%, -25%) scale(1) rotate(360deg); }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(360deg); } }
+
+@keyframes secondBoxAnim {
+  15% {
+    transform: translate(-50%, 50%) scale(1.5); }
+  30% {
+    transform: translate(-50%, -50%) scale(1.5); }
+  45% {
+    transform: translate(50%, -50%) scale(1.5) rotate(180deg); }
+  60% {
+    transform: translate(50%, 50%) scale(1.5) rotate(180deg); }
+  75% {
+    transform: translate(25%, 25%) scale(1) rotate(180deg); }
+  90% {
+    transform: translate(-25%, 25%) scale(1) rotate(360deg); }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(360deg); } }
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0; }
+
+/* set up the body */
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  background: #1d1d1d;
+  font-family: sans-serif; }
+
+/* make images easier to work with */
+img,
+picutre {
+  max-width: 100%;
+  display: block; }
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+h1 {
+  color: #e6e6e6; }
+
+.spinner__box--1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: radial-gradient(rgba(69, 190, 211, 0.733), rgba(69, 190, 211, 0.999));
+  animation: firstBoxAnim 2.5s infinite; }
+
+.spinner__box--2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: radial-gradient(rgba(69, 190, 211, 0.733), rgba(69, 190, 211, 0.999));
+  animation: secondBoxAnim 2.5s infinite; }
+
+.section-spinners {
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+  .section-spinners__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly; }

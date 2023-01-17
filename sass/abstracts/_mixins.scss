@@ -1,0 +1,10 @@
+@mixin box {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: radial-gradient(
+    hsla(189, 62%, 55%, 0.733),
+    hsla(189, 62%, 55%, 0.999)
+  );
+}

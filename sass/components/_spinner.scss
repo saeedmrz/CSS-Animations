@@ -1,0 +1,13 @@
+.spinner {
+  &__box {
+    &--1 {
+      @include box;
+      animation: firstBoxAnim 2.5s infinite;
+    }
+
+    &--2 {
+      @include box;
+      animation: secondBoxAnim 2.5s infinite;
+    }
+  }
+}
