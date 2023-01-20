@@ -49,3 +49,17 @@
     transform: translate(0, 0) scale(1) rotate(360deg);
   }
 }
+
+/* ------------------- */
+/* Stagger-Square Animation               */
+/* ------------------- */
+
+@keyframes makeItSmall {
+  from,
+  to {
+    transform: none;
+  }
+  25% {
+    transform: scale(0.1);
+  }
+}

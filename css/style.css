@@ -34,6 +34,16 @@
     transform: translate(0, 0) scale(1) rotate(360deg); } }
 
 /* ------------------- */
+/* Stagger-Square Animation               */
+/* ------------------- */
+@keyframes makeItSmall {
+  from,
+  to {
+    transform: none; }
+  25% {
+    transform: scale(0.1); } }
+
+/* ------------------- */
 /* Reset               */
 /* ------------------- */
 /* https://piccalil.li/blog/a-modern-css-reset/ */
@@ -85,8 +95,11 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important; } }
 
-h1 {
-  color: #e6e6e6; }
+.title {
+  color: #e6e6e6;
+  width: 20rem;
+  text-align: center;
+  border-bottom: 1px solid #8d8d8d; }
 
 .spinner__box--1 {
   position: absolute;
@@ -104,14 +117,32 @@ h1 {
   background: radial-gradient(rgba(69, 190, 211, 0.733), rgba(69, 190, 211, 0.999));
   animation: secondBoxAnim 2.5s infinite; }
 
-.section-spinners {
+.stagger-grid {
+  width: 350px;
+  height: 125px;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(5, 1fr); }
+  .stagger-grid__square {
+    --duration: 2s;
+    --stagger: 1.8s;
+    --interval: calc(var(--duration) - var(--stagger));
+    background-color: #00d672;
+    animation: makeItSmall var(--duration) calc(var(--interval) * var(--i)) ease-in-out infinite; }
+
+.section {
   width: 100vw;
-  height: 15vh;
+  height: 20vh;
+  margin-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; }
-  .section-spinners__container {
+  justify-content: space-between;
+  gap: 1rem; }
+  .section__container {
     width: 100%;
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-evenly; }

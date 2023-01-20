@@ -1,0 +1,19 @@
+.stagger-grid {
+  width: 350px;
+  height: 125px;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  &__square {
+    --duration: 2s;
+    --stagger: 1.8s;
+    --interval: calc(var(--duration) - var(--stagger));
+    background-color: rgb(0, 214, 114);
+    animation: makeItSmall var(--duration) calc(var(--interval) * var(--i))
+      ease-in-out infinite;
+  }
+}
+
+// cubic-bezier(0.17, 0.67, 0.83, 0.67)
