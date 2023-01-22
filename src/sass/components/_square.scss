@@ -1,0 +1,7 @@
+.square {
+  transform: translateX(-8rem);
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--color-green);
+  animation: squareToBall 1.2s both;
+}

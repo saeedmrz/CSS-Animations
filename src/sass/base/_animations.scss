@@ -63,3 +63,53 @@
     transform: scale(0.1);
   }
 }
+
+/* ------------------- */
+/* Stagger-Square Animation               */
+/* ------------------- */
+
+@keyframes squareToBall {
+  to {
+    transform: translateX(8rem);
+    border-radius: 50%;
+    background-color: var(--color-blue);
+  }
+}
+
+/* ------------------- */
+/* Moon Animation               */
+/* ------------------- */
+
+@keyframes sun {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+  }
+}
+
+@keyframes sunReverse {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes moon {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moonScale {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes moonScaleReverse {
+  to {
+    transform: scale(0.8);
+  }
+}
