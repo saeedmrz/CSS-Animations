@@ -44,7 +44,7 @@
     transform: scale(0.1); } }
 
 /* ------------------- */
-/* Stagger-Square Animation               */
+/* Properties Animation (Bad practice)               */
 /* ------------------- */
 @keyframes squareToBall {
   to {
@@ -83,6 +83,37 @@
 /* ------------------- */
 /* Error Animation               */
 /* ------------------- */
+@keyframes errorPop {
+  from {
+    opacity: 1;
+    transform: scale(0); }
+  90% {
+    transform: scale(1.1); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes movement {
+  from,
+  to {
+    transform: translate(-3px, 2px); }
+  10% {
+    transform: translate(0, 1px); }
+  20% {
+    transform: translate(2px, 0); }
+  30% {
+    transform: translate(3px, -1px); }
+  50% {
+    transform: translate(1px, -3px); }
+  60% {
+    transform: translate(-3px, -3px); }
+  70% {
+    transform: translate(-4px, 0); }
+  80% {
+    transform: translate(0, 0); }
+  90% {
+    transform: translate(-1px, -1px); } }
+
 /* ------------------- */
 /* Reset               */
 /* ------------------- */
@@ -138,6 +169,7 @@ select {
 :root {
   --color-green: hsl(152, 100%, 42%);
   --color-blue: hsla(189, 62%, 55%, 0.733);
+  --color-blue-light: hsla(189, 62%, 68%, 0.884);
   --color-red: hsl(0, 100%, 31%);
   --color-red-light: hsl(0, 100%, 45%);
   --color-grey: hsl(0, 0%, 60%);
@@ -157,12 +189,18 @@ span {
   color: #e6e6e6; }
 
 .error {
-  width: clamp(200px, 11%, 300px);
-  height: clamp(115px, 35%, 150px);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: clamp(200px, 190px, 300px);
+  height: clamp(115px, 105px, 150px);
   background-color: var(--color-grey-light-2);
   border-radius: 15px;
   border: 5px solid var(--color-black);
-  overflow: hidden; }
+  overflow: hidden;
+  transform-origin: center; }
+  .error[data-state="error"] {
+    animation: errorPop 0.2s both, movement 1.8s 0.4s infinite; }
   .error__top {
     width: 100%;
     height: 30%;
@@ -226,6 +264,34 @@ span {
     color: inherit;
     font-size: 14px;
     font-weight: 900; }
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  align-self: end;
+  margin-bottom: 2rem; }
+  .username__input {
+    width: 15rem;
+    height: 2.3rem;
+    border: 5px solid var(--color-black);
+    border-radius: 5px;
+    font-weight: bold; }
+    .username__input:focus {
+      outline: none; }
+  .username__button {
+    cursor: pointer;
+    width: 4.9rem;
+    height: 2.7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 3px solid var(--color-black);
+    background-color: var(--color-blue);
+    transition: background-color 0.4s; }
+    .username__button:hover {
+      background-color: var(--color-blue-light); }
+    .username__button:active {
+      transform: translateX(5px); }
 
 .spinner__box--1 {
   position: absolute;
@@ -321,9 +387,9 @@ span {
       background-color: var(--color-grey);
       transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)); }
 
-.main {
+main {
   display: grid;
-  grid-template-rows: repeat(3, 35vh) 500px 350px;
+  grid-template-rows: repeat(3, 35vh) 500px 250px;
   gap: 10px; }
 
 .section {
@@ -335,6 +401,7 @@ span {
   .section__container {
     width: 100%;
     height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-evenly; }

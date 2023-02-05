@@ -8,7 +8,7 @@
     <title>CSS Animations</title>
   </head>
   <body>
-    <div class="main">
+    <main>
       <section class="section">
         <h1 class="title">Spinners</h1>
         <div class="section__container">
@@ -18,6 +18,7 @@
           </div>
         </div>
       </section>
+
       <section class="section">
         <h1 class="title">Choreography</h1>
         <div class="section__container">
@@ -105,7 +106,7 @@
       </section>
 
       <section class="section">
-        <h1 class="title">State</h1>
+        <h1 class="title">State (State Machine)</h1>
         <div class="section__container">
           <div class="state">
             <div class="state__switch">
@@ -132,9 +133,9 @@
       </section>
 
       <section class="section">
-        <h1 class="title">Error</h1>
+        <h1 class="title">Error (CSS Attr)</h1>
         <div class="section__container">
-          <div class="error">
+          <div class="error" data-state="">
             <div class="error__top">
               <div class="error__top-container">
                 <div class="error__circle"></div>
@@ -148,9 +149,15 @@
               <span class="error__info">Wrong Password!</span>
             </div>
           </div>
+
+          <div class="username">
+            <input type="username" class="username__input" />
+            <button class="username__button">Error!</button>
+          </div>
         </div>
       </section>
-    </div>
+    </main>
     <script type="module" src="./js/darkModeMachine.js"></script>
+    <script src="./js/error.js"></script>
   </body>
 </html>

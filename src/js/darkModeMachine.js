@@ -3,6 +3,7 @@ import { createMachine, interpret } from "xstate";
 const stateElement = document.querySelector(".state");
 const switchButton = document.querySelector(".state__switch");
 
+// Creating State Machine
 const darkModeMachine = createMachine({
   initial: "light",
   states: {
@@ -25,11 +26,9 @@ const darkModeMachine = createMachine({
 
 const darkModeService = interpret(darkModeMachine);
 
+// Changes state data attribute of .state
 darkModeService.onTransition((state) => {
   stateElement.dataset.state = state.toStrings().join(" ");
-  if (state.changed) {
-    console.log(state);
-  }
 });
 
 darkModeService.start();

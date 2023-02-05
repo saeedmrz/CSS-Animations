@@ -1,10 +1,18 @@
 .error {
-  width: clamp(200px, 11%, 300px);
-  height: clamp(115px, 35%, 150px);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: clamp(200px, 190px, 300px);
+  height: clamp(115px, 105px, 150px);
   background-color: var(--color-grey-light-2);
   border-radius: 15px;
   border: 5px solid var(--color-black);
   overflow: hidden;
+  transform-origin: center;
+
+  &[data-state="error"] {
+    animation: errorPop 0.2s both, movement 1.8s 0.4s infinite;
+  }
 
   &__top {
     width: 100%;
@@ -85,5 +93,44 @@
     color: inherit;
     font-size: 14px;
     font-weight: 900;
+  }
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  align-self: end;
+  margin-bottom: 2rem;
+
+  &__input {
+    width: 15rem;
+    height: 2.3rem;
+    border: 5px solid var(--color-black);
+    border-radius: 5px;
+    font-weight: bold;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 4.9rem;
+    height: 2.7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 3px solid var(--color-black);
+    background-color: var(--color-blue);
+    transition: background-color 0.4s;
+
+    &:hover {
+      background-color: var(--color-blue-light);
+    }
+
+    &:active {
+      transform: translateX(5px);
+    }
   }
 }
